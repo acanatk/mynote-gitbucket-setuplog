@@ -1,1 +1,3 @@
-# mynote-template
+# GitBucket セットアップログ
+
+このドキュメントでは、GitBucketをインストール手順について記述してあります。 
