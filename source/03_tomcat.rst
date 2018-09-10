@@ -26,13 +26,13 @@ Apache Tomcatのダウンロードサイトから、バイナリパッケージ�
 
 なお、本ドキュメントでは、次のバイナリパッケージを使用する場合を例に記述します。
 
-* apache-tomcat-8.5.13.tar.gz
+* apache-tomcat-8.5.33.tar.gz
 
 バイナリパッケージをダウンロードする。
 
 .. code-block:: bash
 
-    $ curl -O http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.13/bin/apache-tomcat-8.5.13.tar.gz
+    $ curl -O http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.33/bin/apache-tomcat-8.5.33.tar.gz
 
 **********************************************************************
 インストール
@@ -43,13 +43,13 @@ Apache Tomcatのダウンロードサイトから、バイナリパッケージ�
 .. code-block:: bash
 
     $ cd /opt
-    $ tar xvzf apache-tomcat-8.5.13.tar.gz
+    $ tar xvzf apache-tomcat-8.5.33.tar.gz
 
 展開したディレクトリおよびファイルの所有者を tomcat ユーザに変更します。
 
 .. code-block:: bash
 
-    $ chown -R tomcat.tomcat apache-tomcat-8.5.13
+    $ chown -R tomcat.tomcat apache-tomcat-8.5.33
 
 **********************************************************************
 設定
@@ -66,18 +66,18 @@ Tomcat サービスの登録
     [Unit]
     Description=Apache Tomcat 8
     After=network.target
-
+    
     [Service]
     User=tomcat
     Group=tomcat
     Type=oneshot
-    PIDFile=/opt/apache-tomcat-8.5.13/tomcat.pid
+    PIDFile=/opt/apache-tomcat-8.5.33/tomcat.pid
     RemainAfterExit=yes
-
-    ExecStart=/opt/apache-tomcat-8.5.13/bin/startup.sh
-    ExecStop=/opt/apache-tomcat-8.5.13/bin/shutdown.sh
-    ExecReStart=/opt/apache-tomcat-8.5.13/bin/shutdown.sh;/opt/apache-tomcat-8.5.13/bin/startup.sh
-
+    
+    ExecStart=/opt/apache-tomcat-8.5.33/bin/startup.sh
+    ExecStop=/opt/apache-tomcat-8.5.33/bin/shutdown.sh
+    ExecReStart=/opt/apache-tomcat-8.5.33/bin/shutdown.sh;/opt/apache-tomcat-8.5.33/bin/startup.sh
+    
     [Install]
     WantedBy=multi-user.target
 

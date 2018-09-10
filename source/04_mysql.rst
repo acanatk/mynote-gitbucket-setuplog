@@ -192,10 +192,21 @@ MySQLの次の設定を変更します。
 .. code-block:: text
     :emphasize-lines: 3-4
 
-    [mysqld]
+    [client]
+    default-character-set = utf8mb4
 
-    character-set-server = utf8
+    [mysqld]
+    character-set-server = utf8mb4
+    collation-server=utf8mb4_unicode_ci
+    skip-character-set-client-handshake
     default_password_lifetime = 0
+
+    [mysqldump]
+    default-character-set = utf8mb4
+
+    [mysql]
+    default-character-set = utf8mb4
+
 
 ======================================================================
 MySQLサービスの自動起動の設定

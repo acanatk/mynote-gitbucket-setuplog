@@ -32,19 +32,19 @@ GitBucketのダウンロードサイトから、warファイルのURLを確認�
 
 なお、本ドキュメントでは、次のバージョンをインストール使用する場合を例に記述します。
 
-* GitBucket 4.13
+* GitBucket 4.28.0
 
 warファイルをダウンロードします。
 
 .. code-block:: bash
 
-    $ curl -LO https://github.com/gitbucket/gitbucket/releases/download/4.13/gitbucket.war
+    $ curl -LO https://github.com/gitbucket/gitbucket/releases/download/4.28.0/gitbucket.war
 
 ダウンロードした war ファイルをTomcatの webapps ディレクトリにコピーします。
 
 .. code-block:: bash
 
-    $ cp gitbucket.war /opt/apache-tomcat-8.5.13/webapps/.
+    $ cp gitbucket.war /opt/apache-tomcat-8.5.33/webapps/.
 
 Tomcatを起動して、デプロイします。
 
@@ -103,20 +103,20 @@ MySQLサービスを起動します。
     :emphasize-lines: 2
 
     $ mysql -u root -p
-    Enter Password: ********
+    Enter password: ********
     Welcome to the MySQL monitor.  Commands end with ; or \g.
-    Your MySQL connection id is 3
-    Server version: 5.7.18 MySQL Community Server (GPL)
-
-    Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
-
+    Your MySQL connection id is 17
+    Server version: 5.7.23 MySQL Community Server (GPL)
+    
+    Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+    
     Oracle is a registered trademark of Oracle Corporation and/or its
     affiliates. Other names may be trademarks of their respective
     owners.
-
+    
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-    mysql>
+    
+    mysql> 
 
 次の設定で、GitBucket用データベースを作成します。
 
@@ -189,7 +189,7 @@ tomcat ユーザのホームディレクトリに、次の **GitBucket** デー�
     :emphasize-lines: 2-4
 
     db {
-        url = "jdbc:mysql://localhost/gitbucket?useUnicode=true&characterEncoding=utf8"
+        url = "jdbc:mysql://localhost/gitbucket?useUnicode=true&characterEncoding=utf8mb4"
         user = "gitbucket"
         password = "********"
     }
@@ -211,23 +211,25 @@ MySQL のGitBucket用データベースに接続します。
 .. code-block:: bash
 
     $ mysql -u root -p gitbucket
-    Enter password: 
+    Enter password: ********
     Reading table information for completion of table and column names
     You can turn off this feature to get a quicker startup with -A
-
+    
     Welcome to the MySQL monitor.  Commands end with ; or \g.
-    Your MySQL connection id is 16
-    Server version: 5.7.18 MySQL Community Server (GPL)
-
-    Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
-
+    Your MySQL connection id is 18
+    Server version: 5.7.23 MySQL Community Server (GPL)
+    
+    Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+    
     Oracle is a registered trademark of Oracle Corporation and/or its
     affiliates. Other names may be trademarks of their respective
     owners.
-
+    
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
+    
     mysql> 
+
+
 
 **show tables** を実行して、GitBucket用の各種テーブルが作成されていることを確認します。
 
@@ -239,6 +241,10 @@ MySQL のGitBucket用データベースに接続します。
     +----------------------------------+
     | ACCESS_TOKEN                     |
     | ACCOUNT                          |
+    | ACCOUNT_EXTRA_MAIL_ADDRESS       |
+    | ACCOUNT_FEDERATION               |
+    | ACCOUNT_WEB_HOOK                 |
+    | ACCOUNT_WEB_HOOK_EVENT           |
     | ACTIVITY                         |
     | COLLABORATOR                     |
     | COMMIT_COMMENT                   |
@@ -249,20 +255,26 @@ MySQL のGitBucket用データベースに接続します。
     | ISSUE_COMMENT                    |
     | ISSUE_ID                         |
     | ISSUE_LABEL                      |
+    | ISSUE_NOTIFICATION               |
     | ISSUE_OUTLINE_VIEW               |
     | LABEL                            |
     | MILESTONE                        |
+    | NOTIFICATIONS_ACCOUNT            |
     | PLUGIN                           |
+    | PRIORITY                         |
     | PROTECTED_BRANCH                 |
     | PROTECTED_BRANCH_REQUIRE_CONTEXT |
     | PULL_REQUEST                     |
+    | RELEASE_ASSET                    |
+    | RELEASE_TAG                      |
     | REPOSITORY                       |
     | SSH_KEY                          |
     | VERSIONS                         |
+    | WATCH                            |
     | WEB_HOOK                         |
     | WEB_HOOK_EVENT                   |
     +----------------------------------+
-    24 rows in set (0.00 sec)
+    34 rows in set (0.00 sec)
 
     mysql> 
 

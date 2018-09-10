@@ -16,20 +16,20 @@ Oracle JDKのダウンロードサイトから、インストーラのURLを確�
 
 なお、本ドキュメントでは、次のインストーラを使用する場合を例に記述します。
 
-* jdk-8u131-linux-x64.rpm
+* jdk-8u181-linux-x64.rpm
 
 インストーラをダウンロードする。
 
 .. code-block:: bash
 
     $ curl -LO -H "Cookie: oraclelicense=accept-securebackup-cookie" \
-           "http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm"
+           "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm"
 
 インストールする。
 
 .. code-block:: bash
 
-    $ yum localinstall jdk-8u131-linux-x64.rpm
+    $ yum localinstall jdk-8u181-linux-x64.rpm
 
 
 ======================================================================
@@ -53,13 +53,14 @@ Oracle JDKのダウンロードサイトから、インストーラのURLを確�
 .. code-block:: bash
 
     $ java -version
-    java version "1.8.0_131"
-    Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
-    Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+    java version "1.8.0_181"
+    Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
+
 
 **javac** コマンドを実行して、次のようにバージョンが表示されれば正しくインストールされています。
 
 .. code-block:: bash
 
     $ javac -version
-    javac 1.8.0_131
+    javac 1.8.0_181
